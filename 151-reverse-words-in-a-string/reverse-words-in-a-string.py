@@ -1,6 +1,10 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        word = s.split()
-        reversed_words = word[::-1]
-        reversed_string = ' '.join(reversed_words)
-        return reversed_string
+        """
+        Test Case:
+        Input: Input: s = "the sky is blue"
+        Output: "blue is sky the"
+        """
+        s_split = s.split()
+        reversed_s = reversed(s_split)
+        return " ".join(reversed_s)
