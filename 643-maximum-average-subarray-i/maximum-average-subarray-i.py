@@ -1,19 +1,15 @@
-class Solution:
-    def findMaxAverage(self, nums: List[int], k: int) -> float:
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: float
+        """
+        current_sum = sum(nums[:k])
+        max_sum = current_sum
+
+        for i in range(k,len(nums)):
+            current_sum = current_sum + nums[i] - nums[i - k]
+            max_sum = max(max_sum, current_sum)
         
-        # Initialize currSum and maxSum to the sum of the initial k elements
-        currSum = maxSum = sum(nums[:k])
-
-        # Start the loop from the kth element 
-        # Iterate until you reach the end
-        for i in range(k, len(nums)):
-
-            # Subtract the left element of the window
-            # Add the right element of the window
-            currSum += nums[i] - nums[i - k]
-            
-            # Update the max
-            maxSum = max(maxSum, currSum)
-
-        # Since the problem requires average, we return the average
-        return maxSum / k
+        return max_sum / float(k)
