@@ -1,17 +1,14 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+class Solution(object):
+    def twoSum(self, nums, target):
         """
-        hashmap: 0:2, 0:3, 0:11, 0:15
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
         """
-        hashmap = {}
-        #enumerate for loop
+        seen_nums = {}
         for i, num in enumerate(nums):
-            compliment = target - num
-            if compliment in hashmap:
-                return [hashmap[compliment], i]
-            hashmap[num] = i
-                
-
-
-
-            
+            complement = target - num
+            if complement in seen_nums:
+                return [seen_nums[complement],i]
+            seen_nums[num] = i
+        
