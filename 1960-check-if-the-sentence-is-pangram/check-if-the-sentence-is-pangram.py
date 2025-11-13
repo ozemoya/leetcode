@@ -5,5 +5,4 @@ class Solution(object):
         :rtype: bool
         """
         alphabet = set("abcdefghijklmnopqrstuvwxyz")
-        sentence_set = set(sentence)
-        return alphabet.issubset(sentence_set)
+        return alphabet.issubset(sentence)
